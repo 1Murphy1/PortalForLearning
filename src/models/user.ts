@@ -7,6 +7,8 @@ enum Role {
 }
 
 interface IUser {
+  firstName: string;
+  lastName: string;
   username: string;
   password: string;
   role: Role;
@@ -20,6 +22,14 @@ interface IUserMethods {
 type UserModel = Model<IUser, object, IUserMethods>;
 
 const userSchema = new Schema<IUser, UserModel, IUserMethods>({
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
   username: {
     type: String,
     required: true,
